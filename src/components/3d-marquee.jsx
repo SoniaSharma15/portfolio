@@ -8,7 +8,6 @@ export const ThreeDMarquee = ({
   const chunkSize = Math.ceil(images.length / 4);
   const chunks = Array.from({ length: 4 }, (_, colIndex) => {
     const start = colIndex * chunkSize;
-    console.log(images.slice(start, start + chunkSize))
     return images.slice(start, start + chunkSize);
   });
   return (
@@ -48,11 +47,11 @@ export const ThreeDMarquee = ({
                       }}
                       key={imageIndex + image}
                       src={image}
-                      alt={`Image ${imageIndex + 1}`}
+                      alt={`Logo of ${image.split("/").pop().split(".")[0]}`}
                       className="aspect-[970/700] rounded-lg object-cover ring ring-gray-950/5 hover:shadow-2xl"
                       width={200}
-                      height={170} />
-                      {console.log(image)}
+                      height={170}
+                      loading="lazy"/>
                   </div>
                 ))}
               </motion.div>

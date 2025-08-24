@@ -1,49 +1,50 @@
-import React, { useEffect, useLayoutEffect } from 'react'
-import Header from './components/Header'
-import HeroicSection from './components/HeroicSection'
-import AboutSection from './components/AboutSection'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import gsap from 'gsap'
-import ContactSection from './components/ContactSection'
-import ProgressBar from './components/ProgressBar'
-import RecentProjects from './components/RecentProjects'
-import { TechStack } from './components/TechStack'
-import { Certificates } from './components/Certificates'
+import React, { lazy, Suspense } from "react";
+
+const Header = lazy(() => import('./components/Header'));
+const HeroicSection = lazy(() => import('./components/HeroicSection'));
+const AboutSection = lazy(() => import('./components/AboutSection'));
+const ContactSection = lazy(() => import('./components/ContactSection'));
+const ProgressBar = lazy(() => import('./components/ProgressBar'));
+const RecentProjects = lazy(() => import('./components/RecentProjects'));
+const TechStack = lazy(() => import('./components/TechStack'));
+const Certificates = lazy(() => import('./components/Certificates'));
+
 function App() {
-  // useEffect(()=>{
-  //   //register scrollTrigger plugin
-  //   gsap.registerPlugin(ScrollTrigger)
-  //   //refresh ScrollTrigger when the page is fully loaded
-  //   ScrollTrigger.refresh()
-  //   //clean up scrollTrigger on component unmount
-  //   return ScrollTrigger.getAll().forEach((trigger)=> trigger.kill())
-  // },[])
-  useLayoutEffect(() => {
-  //register scrollTrigger plugin
-
-  gsap.registerPlugin(ScrollTrigger);
-
-  // Refresh AFTER animations are set up
-  ScrollTrigger.refresh();
-
-  // Proper cleanup on unmount
-  return () => {
-    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-  };
-}, []);
-
   return (
     <>
-    <ProgressBar/>
-    <Header/>
-    <HeroicSection/>
-    <AboutSection/>
-    <RecentProjects/>
-    <Certificates/>
-    <TechStack/>
-    <ContactSection/>
+      <Suspense fallback={<div>Loading ProgressBar...</div>}>
+        <ProgressBar />
+      </Suspense>
+
+      <Suspense fallback={<div>Loading Header...</div>}>
+        <Header />
+      </Suspense>
+
+      <Suspense fallback={<div>Loading Hero Section...</div>}>
+        <HeroicSection />
+      </Suspense>
+
+      <Suspense fallback={<div>Loading About Section...</div>}>
+        <AboutSection />
+      </Suspense>
+
+      <Suspense fallback={<div>Loading Projects...</div>}>
+        <RecentProjects />
+      </Suspense>
+
+      <Suspense fallback={<div>Loading Certificates...</div>}>
+        <Certificates />
+      </Suspense>
+
+      <Suspense fallback={<div>Loading Tech Stack...</div>}>
+        <TechStack />
+      </Suspense>
+
+      <Suspense fallback={<div>Loading Contact Section...</div>}>
+        <ContactSection />
+      </Suspense>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
