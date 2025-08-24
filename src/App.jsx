@@ -12,35 +12,35 @@ const Certificates = lazy(() => import('./components/Certificates'));
 function App() {
   return (
     <>
-      <Suspense fallback={<div>Loading ProgressBar...</div>}>
+      <Suspense fallback={<div className="text-center my-2">Loading ProgressBar...</div>}>
         <ProgressBar />
       </Suspense>
 
-      <Suspense fallback={<div>Loading Header...</div>}>
+      <Suspense fallback={<div className="text-center my-2">Loading Header...</div>}>
         <Header />
       </Suspense>
 
-      <Suspense fallback={<div>Loading Hero Section...</div>}>
+      <Suspense fallback={<div className="text-center my-2">Loading Hero Section...</div>}>
         <HeroicSection />
       </Suspense>
 
-      <Suspense fallback={<div>Loading About Section...</div>}>
+      <Suspense fallback={<div className="text-center my-2">Loading About Section...</div>}>
         <AboutSection />
       </Suspense>
 
-      <Suspense fallback={<div>Loading Projects...</div>}>
+      <Suspense fallback={<div className="text-center my-2">Loading Projects...</div>}>
         <RecentProjects />
       </Suspense>
 
-      <Suspense fallback={<div>Loading Certificates...</div>}>
+      <Suspense fallback={<div className="text-center my-2">Loading Certificates...</div>}>
         <Certificates />
       </Suspense>
 
-      <Suspense fallback={<div>Loading Tech Stack...</div>}>
+      <Suspense fallback={<div className="text-center my-2">Loading Tech Stack...</div>}>
         <TechStack />
       </Suspense>
 
-      <Suspense fallback={<div>Loading Contact Section...</div>}>
+      <Suspense fallback={<div className="text-center my-2">Loading Contact Section...</div>}>
         <ContactSection />
       </Suspense>
     </>
