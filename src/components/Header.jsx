@@ -145,18 +145,20 @@ function Header() {
             </a>
           </div>
           <button
+            // onClick={() => {
+            //   toggleMenu();
+            //   openContactForm();
+            // }}
             onClick={() => {
-              toggleMenu();
-              openContactForm();
-            }}
-            className="mt-4 w-full py-2 text-white bg-violet-500 rounded"
+    window.location.href = "mailto:soniasunita15@gmail.com";
+  }}            className="mt-4 w-full py-2 text-white bg-violet-500 rounded"
           >
             Contact Me
           </button>
         </div>
       </motion.div>{" "}
       {/* Contact Form Modal */}
-      <AnimatePresence>
+      {/* <AnimatePresence>
         {contactFormOpen && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -238,7 +240,7 @@ function Header() {
             </motion.div>
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresence> */}
     </header>
   );
 }

@@ -8,7 +8,7 @@ function AboutSection() {
   const introRef = useRef(null);
   const starsRef = useRef([]);
 
-  // Generate star styles once
+  // Stars generated once
   const starStyles = useMemo(() => {
     return [...Array(8)].map((_, i) => ({
       width: `${10 + i * 3}px`,
@@ -34,13 +34,13 @@ function AboutSection() {
     tl.fromTo(
       titleRef.current,
       { y: 100, opacity: 0 },
-      { y: -300, opacity: 1, duration: 0.8 }
+      { y: -200, opacity: 1, duration: 0.8 }
     );
 
     tl.fromTo(
       introRef.current,
       { y: 100, opacity: 0, filter: "blur(10px)" },
-      { y: -400, opacity: 1, filter: "blur(0px)", duration: 1.5 },
+      { y: -150, opacity: 1, filter: "blur(0px)", duration: 1.5 },
       "-=0.5"
     );
 
@@ -76,10 +76,11 @@ function AboutSection() {
 
   return (
     <section
-      className="h-screen relative overflow-hidden bg-gradient-to-b from-black to-[#9a74cf50]"
+      className="min-h-[140vh] relative bg-gradient-to-b from-black to-[#9a74cf50]"
       ref={sectionRef}
     >
-      <div className="absolute inset-0 overflow-hidden">
+      {/* Stars */}
+      <div className="absolute inset-0">
         {starStyles.map((style, i) => (
           <div
             ref={addToStars}
@@ -90,10 +91,11 @@ function AboutSection() {
         ))}
       </div>
 
-      <div className="container mx-auto px-4 h-full flex flex-col items-center justify-center">
+      {/* Title */}
+      <div className="container mx-auto px-4 pt-20 flex flex-col items-center">
         <h1
           ref={titleRef}
-          className="text-4xl md:text-6xl font-bold sm:mb-5 text-center text-white opacity-0"
+          className="text-4xl md:text-6xl font-bold text-center text-white opacity-0"
           style={{ willChange: "transform, opacity" }}
           id="about"
         >
@@ -101,16 +103,36 @@ function AboutSection() {
         </h1>
       </div>
 
+      {/* Intro Section */}
       <div
         ref={introRef}
-        className="absolute lg:bottom-[-20rem] md:bottom-[-10rem] sm:bottom-[-24rem] bottom-[-18rem] left-0 w-full flex md:flex-row flex-col md:justify-between justify-evenly lg:px-24 px-5 items-center opacity-0"
+        className="absolute left-0 w-full mt-10 md:mt-20 flex md:flex-row flex-col md:justify-between items-center lg:px-24 px-5 opacity-0"
         style={{ willChange: "transform, opacity" }}
       >
-        <h3 className="text-sm md:text-2xl font-bold text-purple-200x-50 lg:max-w-[45rem] max-w-[27rem] tracking-wider md:mt-20 sm:mt-[-40rem] mt-[-32rem]">
-          Hi, I am Sonia, a Full Stack Developer focused on speed, polish, and performance. I craft responsive, user-friendly web interfaces using modern tools like React, Tailwind CSS, and Next. Whether it's a landing page, a full-scale web app, or something in between—I'm all about clean code, fast delivery, and seamless user experiences.
+        <h3 className="text-sm md:text-2xl font-semibold text-purple-200 lg:max-w-[45rem] max-w-[27rem] tracking-wide leading-relaxed">
+          I’m Sonia Sharma, a passionate Full Stack Developer from Lucknow, India,
+          currently pursuing my B.Tech in Computer Science and Engineering from
+          SR Institute of Management and Technology (AKTU) with a strong academic
+          record (CGPA: 8.7/10 till 7th semester).
+          <br /><br />
+          My academic journey built a strong foundation in computer science. I’ve
+          excelled in Data Structures, Web Technologies, Python, and C Programming,
+          supported by certifications from NPTEL, CEC, IGNOU, and IIT Madras.
+          <br /><br />
+          I was honored with a letter of recognition by Mr. Rajnath Singh for
+          exceptional performance in Senior Secondary education.
+          <br /><br />
+          Alongside academics, I develop real-world applications using the MERN
+          stack, Next.js, Tailwind, PostgreSQL, MongoDB, and modern AI tools,
+          focusing on performance, design, and user-centred experiences.
+          <br /><br />
+          I love combining clean UI, efficient backend systems, and problem-solving
+          to build meaningful digital products. Outside development, I enjoy
+          learning, experimenting, and exploring new technologies.
         </h3>
+
         <img
-          className="lg:h-[35rem] md:h-[25rem] h-[20rem] mix-blend-lighten"
+          className="lg:h-[35rem] md:h-[28rem] h-[20rem] mix-blend-lighten mt-10 md:mt-0"
           src="images/person.png"
           alt="Sonia"
           loading="lazy"

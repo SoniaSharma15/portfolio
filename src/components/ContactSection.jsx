@@ -23,7 +23,7 @@ function ContactSection() {
         </p>
 
         <a
-          href="mailto:sonia@example.com"
+          href="mailto:soniasunita15@gmail.com.com"
           className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-black text-white hover:bg-white hover:text-black transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-violet-600 focus:ring-offset-2"
         >
           <IconMail className="w-5 h-5" />
@@ -33,7 +33,7 @@ function ContactSection() {
         {/* Social Icons */}
         <div className="mt-8 flex justify-center gap-6">
           <a
-            href="https://linkedin.com/in/sonia-sharma"
+            href="https://linkedin.com/in/sonia-sharma-15a-11b-2024c"
             target="_blank"
             rel="noopener noreferrer"
             className="text-violet-800 dark:text-violet-300 hover:text-black dark:hover:text-white transition-colors"
@@ -41,7 +41,7 @@ function ContactSection() {
             <IconBrandLinkedin className="w-6 h-6" />
           </a>
           <a
-            href="https://github.com/sonia-sharma"
+            href="https://github.com/SoniaSharma15"
             target="_blank"
             rel="noopener noreferrer"
             className="text-violet-800 dark:text-violet-300 hover:text-black dark:hover:text-white transition-colors"
