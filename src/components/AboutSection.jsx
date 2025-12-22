@@ -76,7 +76,7 @@ function AboutSection() {
 
   return (
     <section
-      className="min-h-[140vh] relative bg-gradient-to-b from-black to-[#9a74cf50]"
+      className="min-h-[105vh] md:min-h-[140vh] relative bg-gradient-to-b from-black to-[#9a74cf50]"
       ref={sectionRef}
     >
       {/* Stars */}
