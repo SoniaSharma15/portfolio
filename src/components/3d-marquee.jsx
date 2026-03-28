@@ -1,132 +1,125 @@
-import {motion} from "framer-motion"
+import { motion } from "framer-motion";
 import { cn } from "../lib/utils";
-export const ThreeDMarquee = ({
-  images,
-  className
-}) => {
-  // Split the images array into 4 equal parts
-  const chunkSize = Math.ceil(images.length / 4);
-  const chunks = Array.from({ length: 4 }, (_, colIndex) => {
-    const start = colIndex * chunkSize;
-    return images.slice(start, start + chunkSize);
-  });
+
+export const ThreeDMarquee = ({ images, className }) => {
+  // Create 4 columns with slightly shuffled arrangements to make it look organic
+  const columns = [
+    images,
+    [...images].reverse(),
+    [...images.slice(4), ...images.slice(0, 4)],
+    [...images.slice(7), ...images.slice(0, 7)].reverse(),
+  ];
+
   return (
     <div
       className={cn(
-        "mx-auto block h-[600px] overflow-hidden rounded-2xl max-sm:h-100",
+        "mx-auto w-full h-[400px] md:h-[600px] overflow-hidden rounded-2xl relative",
         className
-      )}>
-      <div className="flex size-full items-center justify-center">
-        <div className="size-[1720px] shrink-0 scale-50 sm:scale-75 lg:scale-100">
-          <div
-            style={{
-              transform: "rotateX(55deg) rotateY(0deg) rotateZ(-45deg)",
-            }}
-            className="relative top-96 right-[50%] grid size-full origin-top-left grid-cols-6 gap-8 transform-3d">
-            {chunks.map((subarray, colIndex) => (
-              <motion.div
-                animate={{ y: colIndex % 2 === 0 ? 100 : -100 }}
-                transition={{
-                  duration: colIndex % 2 === 0 ? 10 : 15,
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                }}
-                key={colIndex + "marquee"}
-                className="flex flex-col items-start gap-8">
-                <GridLineVertical className="-left-4" offset="80px" />
-                {subarray.map((image, imageIndex) => (
-                  <div className="relative" key={imageIndex + image}>
-                    <GridLineHorizontal className="-top-4" offset="200px" />
-                    <motion.img
-                      whileHover={{
-                        y: -10,
-                      }}
-                      transition={{
-                        duration: 0.3,
-                        ease: "easeInOut",
-                      }}
-                      key={imageIndex + image}
-                      src={image}
-                      alt={`Logo of ${image.split("/").pop().split(".")[0]}`}
-                      className="aspect-[970/700] rounded-lg object-cover ring ring-gray-950/5 hover:shadow-2xl"
-                      width={200}
-                      height={170}
-                      loading="lazy"/>
-                  </div>
-                ))}
-              </motion.div>
-            ))}
-          </div>
+      )}
+    >
+      <div className="flex h-full w-full items-center justify-center">
+        {/* The 3D Perspective Container */}
+        <div
+          className="relative w-[150%] md:w-[120%] lg:w-[100%] h-[200%] flex gap-4 md:gap-8 justify-center items-center"
+          style={{
+            transform: "rotateX(55deg) rotateZ(-45deg)",
+            transformStyle: "preserve-3d",
+          }}
+        >
+          {columns.map((colImages, colIndex) => {
+            const isEven = colIndex % 2 === 0;
+
+            return (
+              <div 
+                key={colIndex} 
+                className="relative flex flex-col w-28 md:w-40 lg:w-48 overflow-visible"
+              >
+                {/* Vertical Grid Line */}
+                <GridLineVertical className="-left-2 md:-left-4" offset="100px" />
+
+                {/* The Scrolling Column */}
+                <motion.div
+                  className="flex flex-col gap-4 md:gap-8 w-full"
+                  // Seamless infinite scroll logic
+                  animate={{
+                    y: isEven ? ["-50%", "0%"] : ["0%", "-50%"],
+                  }}
+                  transition={{
+                    duration: 15 + colIndex * 2, // Slight speed variation per column
+                    ease: "linear",
+                    repeat: Infinity,
+                  }}
+                  // CRITICAL: Forces the browser to put this column on the GPU
+                  style={{ willChange: "transform" }}
+                >
+                  {/* Duplicate array twice so it loops perfectly */}
+                  {[...colImages, ...colImages].map((image, imageIndex) => (
+                    <div 
+                      className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-white/10 shadow-[0_0_15px_rgba(0,0,0,0.5)] bg-zinc-900" 
+                      key={`${colIndex}-${imageIndex}`}
+                    >
+                      <GridLineHorizontal className="-top-2 md:-top-4" offset="100px" />
+                      <img
+                        src={image}
+                        alt={`Tech stack ${imageIndex}`}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                        decoding="async" // Helps prevent lag during image load
+                      />
+                    </div>
+                  ))}
+                </motion.div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>
   );
 };
 
-const GridLineHorizontal = ({
-  className,
-  offset
-}) => {
+// --- Grid Lines (Optimized) ---
+
+const GridLineHorizontal = ({ className, offset }) => {
   return (
     <div
-      style={
-        {
-          "--background": "#ffffff",
-          "--color": "rgba(0, 0, 0, 0.2)",
-          "--height": "1px",
-          "--width": "5px",
-          "--fade-stop": "90%",
-
-          //-100px if you want to keep the line inside
-          "--offset": offset || "200px",
-
-          "--color-dark": "rgba(255, 255, 255, 0.2)",
-          maskComposite: "exclude"
-        }
-      }
+      style={{
+        "--background": "#ffffff",
+        "--color": "rgba(255, 255, 255, 0.15)",
+        "--height": "1px",
+        "--width": "5px",
+        "--fade-stop": "90%",
+        "--offset": offset || "200px",
+      }}
       className={cn(
         "absolute left-[calc(var(--offset)/2*-1)] h-[var(--height)] w-[calc(100%+var(--offset))]",
         "bg-[linear-gradient(to_right,var(--color),var(--color)_50%,transparent_0,transparent)]",
         "[background-size:var(--width)_var(--height)]",
-        "[mask:linear-gradient(to_left,var(--background)_var(--fade-stop),transparent),_linear-gradient(to_right,var(--background)_var(--fade-stop),transparent),_linear-gradient(black,black)]",
-        "[mask-composite:exclude]",
-        "z-30",
-        "dark:bg-[linear-gradient(to_right,var(--color-dark),var(--color-dark)_50%,transparent_0,transparent)]",
+        "z-30 pointer-events-none",
         className
-      )}></div>
+      )}
+    />
   );
 };
 
-const GridLineVertical = ({
-  className,
-  offset
-}) => {
+const GridLineVertical = ({ className, offset }) => {
   return (
     <div
-      style={
-        {
-          "--background": "#ffffff",
-          "--color": "rgba(0, 0, 0, 0.2)",
-          "--height": "5px",
-          "--width": "1px",
-          "--fade-stop": "90%",
-
-          //-100px if you want to keep the line inside
-          "--offset": offset || "150px",
-
-          "--color-dark": "rgba(255, 255, 255, 0.2)",
-          maskComposite: "exclude"
-        }
-      }
+      style={{
+        "--background": "#ffffff",
+        "--color": "rgba(255, 255, 255, 0.15)",
+        "--height": "5px",
+        "--width": "1px",
+        "--fade-stop": "90%",
+        "--offset": offset || "150px",
+      }}
       className={cn(
         "absolute top-[calc(var(--offset)/2*-1)] h-[calc(100%+var(--offset))] w-[var(--width)]",
         "bg-[linear-gradient(to_bottom,var(--color),var(--color)_50%,transparent_0,transparent)]",
         "[background-size:var(--width)_var(--height)]",
-        "[mask:linear-gradient(to_top,var(--background)_var(--fade-stop),transparent),_linear-gradient(to_bottom,var(--background)_var(--fade-stop),transparent),_linear-gradient(black,black)]",
-        "[mask-composite:exclude]",
-        "z-30",
-        "dark:bg-[linear-gradient(to_bottom,var(--color-dark),var(--color-dark)_50%,transparent_0,transparent)]",
+        "z-30 pointer-events-none",
         className
-      )}></div>
+      )}
+    />
   );
 };

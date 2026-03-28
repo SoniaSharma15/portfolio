@@ -1,7 +1,7 @@
 import { AnimatedTestimonials } from "./animated-testimonials";
 import { useMemo } from "react";
 
- function Certificates() {
+function Certificates() {
   const testimonials = useMemo(() => [
     {
       quote:
@@ -82,6 +82,8 @@ import { useMemo } from "react";
     },
   ], []);
 
-  return <AnimatedTestimonials testimonials={testimonials} />;
+  // Pass autoplay prop if you want it to scroll automatically!
+  return <AnimatedTestimonials testimonials={testimonials} autoplay={true} />;
 }
+
 export default Certificates;
