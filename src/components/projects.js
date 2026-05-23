@@ -1,36 +1,5 @@
 export const projects = [
-  {
-    id: 1,
-    title: "Employee Monitoring Agent",
-    desc: "Scalable monitoring system enabling real-time tracking of distributed employee activity. Engineered dynamic admin-driven configurations and optimized backend pipelines, reducing data latency by ~30%.",
-    img: "images/projects/Emp.jpeg", 
-    iconlist: ["React.js", "Node.js", "Express.js", "MongoDB", "Socket.io"],
-    link: "#" // Add live link here when ready
-  },
-  {
-    id: 2,
-    title: "Driver Services Booking",
-    desc: "Full-stack driver booking platform with dedicated client, driver, and admin dashboards. Integrated real-time geolocation tracking, ride management, and secure payment systems.",
-    img: "images/projects/CabService.jpeg", 
-    iconlist: ["React.js", "Node.js", "Express.js", "MongoDB", "Geolocation API"],
-    link: "https://our-driver-booking.vercel.app/"
-  },
-  {
-    id: 3,
-    title: "Answer Writing & Mentorship Platform",
-    desc: "Role-based educational portal (Admin/Teacher/Student) for daily question uploads and solution evaluations. Features WebRTC for 1:1 live mentorship and OBS integration for mass live sessions.",
-    img: "images/projects/answer.jpeg", 
-    iconlist: ["React.js", "Node.js", "WebRTC", "Socket.io", "OBS Studio", "MongoDB"],
-    link: "https://thebrilliantbihar.com/courses" 
-  },
-  {
-    id: 4,
-    title: "Brilliant Bihar (Test Series Module)",
-    desc: "High-security online test platform featuring anti-cheating controls, advanced question types (MSQ, assertion-reason, image-based), automated evaluation, and detailed student performance analytics.",
-    img: "images/projects/brilliantbihar.png", // Update this image path when ready
-    iconlist: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
-    link: "https://thebrilliantbihar.com/courses" 
-  },
+ 
   {
     id: 5,
     title: "AI Mock Interview",
@@ -72,3 +41,40 @@ export const projects = [
     link: "https://nexxplora2024.web.app"
   }
 ];
+
+
+
+export const trainingProjects=[
+ {
+    id: 1,
+    title: "Employee Monitoring Agent",
+    desc: "Scalable monitoring system enabling real-time tracking of distributed employee activity. Engineered dynamic admin-driven configurations and optimized backend pipelines, reducing data latency by ~30%.",
+    img: "images/projects/Emp.jpeg", 
+    iconlist: ["React.js", "Node.js", "Express.js", "MongoDB", "Socket.io"],
+    link: "#" // Add live link here when ready
+  },
+  {
+    id: 2,
+    title: "Driver Services Booking",
+    desc: "Full-stack driver booking platform with dedicated client, driver, and admin dashboards. Integrated real-time geolocation tracking, ride management, and secure payment systems.",
+    img: "images/projects/CabService.jpeg", 
+    iconlist: ["React.js", "Node.js", "Express.js", "MongoDB", "Geolocation API"],
+    link: "https://our-driver-booking.vercel.app/"
+  },
+  {
+    id: 3,
+    title: "Answer Writing & Mentorship Platform",
+    desc: "Role-based educational portal (Admin/Teacher/Student) for daily question uploads and solution evaluations. Features WebRTC for 1:1 live mentorship and OBS integration for mass live sessions.",
+    img: "images/projects/answer.jpeg", 
+    iconlist: ["React.js", "Node.js", "WebRTC", "Socket.io", "OBS Studio", "MongoDB"],
+    link: "https://thebrilliantbihar.com/courses" 
+  },
+  {
+    id: 4,
+    title: "Brilliant Bihar (Test Series Module)",
+    desc: "High-security online test platform featuring anti-cheating controls, advanced question types (MSQ, assertion-reason, image-based), automated evaluation, and detailed student performance analytics.",
+    img: "images/projects/testSeries.jpg", // Update this image path when ready
+    iconlist: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
+    link: "https://thebrilliantbihar.com/courses" 
+  },
+]

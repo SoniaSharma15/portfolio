@@ -215,7 +215,7 @@ function ContactSection() {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        placeholder="John Doe"
+                        placeholder="Full Name "
                         className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-zinc-600 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 focus:-translate-y-1 focus:shadow-[0_10px_20px_-10px_rgba(168,85,247,0.4)] transition-all duration-300"
                       />
                     </div>
@@ -232,7 +232,7 @@ function ContactSection() {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        placeholder="john@example.com"
+                        placeholder="name@example.com"
                         className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-zinc-600 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 focus:-translate-y-1 focus:shadow-[0_10px_20px_-10px_rgba(168,85,247,0.4)] transition-all duration-300"
                       />
                     </div>

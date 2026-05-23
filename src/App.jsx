@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from "react";
 import { LuLoaderPinwheel } from "react-icons/lu";
+import TrainingProjects from "./components/TrainingProjects";
 
 const Header = lazy(() => import('./components/Header'));
 const HeroicSection = lazy(() => import('./components/HeroicSection'));
@@ -29,6 +30,9 @@ function App() {
         <AboutSection />
       </Suspense>
 
+      <Suspense fallback={<div className="text-center my-2"></div>}>
+        <TrainingProjects />
+      </Suspense>
       <Suspense fallback={<div className="text-center my-2"></div>}>
         <RecentProjects />
       </Suspense>

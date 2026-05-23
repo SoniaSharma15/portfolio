@@ -1,9 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { projects } from './projects';
+import { projects, trainingProjects } from './projects';
 import { Animatedpin } from './Animatedpin';
 
-function RecentProjects() {
+function TrainingProjects() {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -39,10 +39,10 @@ function RecentProjects() {
           className="text-center mb-10"
         >
           <h2 className="text-2xl md:text-4xl font-extrabold text-white mb-3 tracking-tight">
-            A small section of <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">recent projects</span>
+            A small section of <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Training projects</span>
           </h2>
           <p className="text-zinc-400 text-sm max-w-2xl mx-auto">
-            Real-world applications showcasing my expertise in full-stack architecture, interactive UI design, and scalable system deployment.
+            Showing my experience gained during my training on the real-world projects.
           </p>
         </motion.div>
 
@@ -53,7 +53,7 @@ function RecentProjects() {
           viewport={{ once: true, margin: "-50px" }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
         >
-          {projects.map(({ id, title, img, desc, iconlist, link }) => (
+          {trainingProjects.map(({ id, title, img, desc, iconlist, link }) => (
             <motion.div 
               key={id} 
               variants={itemVariants}
@@ -75,4 +75,4 @@ function RecentProjects() {
   );
 }
 
-export default React.memo(RecentProjects);
+export default React.memo(TrainingProjects);
