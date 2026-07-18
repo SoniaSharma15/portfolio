@@ -15,7 +15,7 @@ const journeyData = [
     id: 1,
     company: "INLIGHN X",
     role: "FULL STACK DEVELOPER INTERN",
-    duration: "Jan 2026 – May 2026",
+    duration: "Aug 2025 – Sept 2025",
     location: "Remote",
     status: "COMPLETED",
     description: "Contributed to the development of production-ready full-stack web applications using the MERN stack. Collaborated with development teams to build scalable frontend interfaces, secure backend APIs, authentication systems, and real-time features while following modern software engineering practices and Agile workflows.",
@@ -28,8 +28,6 @@ const journeyData = [
       "Optimized application performance, fixed bugs, and collaborated using Git & GitHub."
     ],
     achievements: [
-      "Successfully delivered 7+ enterprise-level projects.",
-      "Built 3+ independent production modules.",
       "Strengthened expertise in full-stack architecture, API development, and scalable application design."
     ],
     technologies: [
@@ -39,11 +37,9 @@ const journeyData = [
       { name: "MongoDB", icon: SiMongodb, color: "text-green-600" },
       { name: "JavaScript", icon: SiJavascript, color: "text-yellow-400" },
       { name: "Tailwind", icon: SiTailwindcss, color: "text-cyan-400" },
-      { name: "Socket.IO", icon: SiSocketdotio, color: "text-white" },
       { name: "JWT", icon: SiJsonwebtokens, color: "text-pink-500" },
       { name: "REST API", icon: null, color: "text-purple-400" },
       { name: "Cloudinary", icon: null, color: "text-blue-500" },
-      { name: "Amazon S3", icon: SiAmazon, color: "text-orange-400" },
       { name: "Git", icon: SiGit, color: "text-red-500" }
     ]
   },
@@ -53,7 +49,7 @@ const journeyData = [
     role: "FULL STACK DEVELOPER INTERN",
     duration: "Jan 2026 – May 2026",
     location: "Lucknow, India",
-    status: "ACTIVE MISSION",
+    status: "COMPLETED",
     description: "Completed an intensive industrial internship focused on full-stack web development. Designed and developed enterprise-grade MERN applications, collaborated on multiple client solutions, and gained practical experience in software architecture, API integration, authentication, deployment workflows, and team-based development.",
     responsibilities: [
       "Designed responsive dashboards and admin panels using React.js.",
@@ -110,10 +106,8 @@ const journeyData = [
       "Software Engineering", 
       "Web Technologies", 
       "Artificial Intelligence", 
-      "Machine Learning"
     ],
     technologies: [
-      { name: "C++", icon: SiCplusplus, color: "text-blue-600" },
       { name: "JavaScript", icon: SiJavascript, color: "text-yellow-400" },
       { name: "React.js", icon: SiReact, color: "text-blue-400" },
       { name: "Node.js", icon: SiNodedotjs, color: "text-green-500" },
