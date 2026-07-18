@@ -5,6 +5,7 @@ import TrainingProjects from "./components/TrainingProjects";
 const Header = lazy(() => import('./components/Header'));
 const HeroicSection = lazy(() => import('./components/HeroicSection'));
 const AboutSection = lazy(() => import('./components/AboutSection'));
+const CareerJourney = lazy(() => import('./components/CareerJourney'));
 const ContactSection = lazy(() => import('./components/ContactSection'));
 const ProgressBar = lazy(() => import('./components/ProgressBar'));
 const RecentProjects = lazy(() => import('./components/RecentProjects'));
@@ -28,6 +29,10 @@ function App() {
 
       <Suspense fallback={<div className="text-center my-2"> </div>}>
         <AboutSection />
+      </Suspense>
+
+      <Suspense fallback={<div className="text-center my-2"> </div>}>
+        <CareerJourney />
       </Suspense>
 
       <Suspense fallback={<div className="text-center my-2"></div>}>

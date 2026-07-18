@@ -82,7 +82,7 @@ function AboutSection() {
         {/* Section Header */}
         <div className="mb-16 text-center lg:text-left">
           <h2 ref={titleRef} className="text-4xl md:text-6xl font-bold text-white mb-4 tracking-tight">
-            Forging Digital <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">Experiences</span>
+            About<span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">Me</span>
           </h2>
           <div className="h-1.5 w-20 bg-indigo-500 rounded-full mx-auto lg:mx-0" />
         </div>
